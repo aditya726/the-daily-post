@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'post.css' %}">
+    <!-- Add TinyMCE script -->
+    <script src="https://cdn.tiny.cloud/1/your-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        window.onload = function() {
+            // Initialize TinyMCE on the description textarea
+            tinymce.init({
+                selector: 'textarea[name="description"]',
+                plugins: 'link image code',
+                toolbar: 'undo redo | bold italic | link image | alignleft aligncenter alignright | code',
+                height: 450  // Set the height of the editor
+            });
+        }
+    </script>
+</head>
+<body>
+    {% for message in messages %}
+        <h2>{{ message }}</h2>
+    {% endfor %}
+
+    <form method="post" action="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea name="Title" placeholder="Enter title"></textarea><br>
+        <!-- TinyMCE editor for description -->
+        <textarea name="description" placeholder="Enter blog description"></textarea><br>
+        <input type="text" placeholder="Category" name="category"><br>
+        <input type="file" accept="image/*" id="fileInput" name="image">
+        <p>Choose an image for your blog (optional)</p>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>

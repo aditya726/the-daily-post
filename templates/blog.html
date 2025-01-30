@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel = "stylesheet" href = "{%static 'blog.css' %}">
+</head>
+<body style="background-image: url('{% if post.image %}{{ post.image.url }}{% else %}{% static 'default.jpg' %}{% endif %}')">
+
+    <div class="post-detail">
+        <h2>{{ post.title }}</h2>
+        <h4>{{ post.Dates }}</h4>
+        <p>{{ post.description }}</p>
+        <h4>Author : {{post.author.username}}</h4>
+        <h5>{{ post.category }}</h5>
+    </div>
+</body>
+</html>

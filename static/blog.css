@@ -1,0 +1,29 @@
+/* Blog detail styling */
+.post-detail {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 20px auto;
+}
+
+.post-detail h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.post-detail h4, .post-detail h5 {
+    font-size: 1rem;
+    color: #777;
+}
+
+.post-detail p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+h3{
+    color:#f0a500;
+}
