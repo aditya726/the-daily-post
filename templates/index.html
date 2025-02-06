@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Daily Post</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <header>
+    {% if messages %}
+        <div id="alert-message" class="alert alert-success" style="display:none;">
+          {% for message in messages %}
+            <strong>{{ message }}</strong>
+          {% endfor %}
+        </div>
+    {% endif %}
         <h1>The Daily Post</h1>
         {% if user.is_authenticated %}
         <h3>Welcome {{ user }}</h3>
         <a href='logout'><button>logout</button></a>
         <a href='post'><button>Post your blog</button></a>
+        <a href="Delete" class="delete-posts"><button>Delete Your Posts</button></a>
         {% else %}
         <h3>Welcome user</h3>
         <a href='login'><button>login</button></a>
         <a href='signup'><button>signup</button></a>
         <p>create an account and login to start posting</p>
         {% endif %}
-        
 
         <form method="get" action="">
-            <input type="text" name="category" placeholder="Search by category" value="{{ request.GET.category }}" id = 'category'>
-            <button type="submit" id = 'search'>Search</button>
+            <input type="text" name="category" placeholder="Search by category" value="{{ request.GET.category }}" id='category'>
+            <button type="submit" id='search'>Search</button>
         </form>
     </header>
 
@@ -35,12 +42,26 @@
             <h4>{{ post.Dates }}</h4>
             <p>{{ post.description|truncatewords:20 }}</p>
             <h5>{{ post.category }}</h5>
-            <h4>Author : {{post.author.username}}</h4>
+            <h4>Author: {{post.author.username}}</h4>
             <a href="{% url 'blog' post.id %}" id="read">Read more</a>        
         </div>
         {% endfor %}
     {% else %}
         <p>No posts found for this category.</p>
     {% endif %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var alertMessage = document.getElementById('alert-message');
+      
+          if (alertMessage) {
+            alertMessage.style.display = 'block';
+            alertMessage.classList.add('fade-in');  
+      
+            setTimeout(function() {
+              alertMessage.style.display = 'none'; 
+            }, 15000);
+          }
+        });
+      </script>
 </body>
 </html>

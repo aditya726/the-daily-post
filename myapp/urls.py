@@ -10,7 +10,9 @@ urlpatterns = [
     path('login',views.login,name = 'login'),
     path('logout',views.logout,name = 'logout'),
     path('blog/<int:id>',views.blog,name = 'blog'),
-    path('post',views.post,name = 'post')
+    path('post',views.post,name = 'post'),
+    path('Delete',views.Delete,name = 'Delete'),
+    path('Delete/<int:post_id>/', views.delete_post, name='delete_post')
 ]
 
 # Serve media files during development

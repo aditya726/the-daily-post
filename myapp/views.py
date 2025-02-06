@@ -74,7 +74,24 @@ def post(request):
             author = request.user
         )
         new_post.save();
-        messages.info(request,'blog Posted successfully')
         return redirect('/')
     else:    
         return render(request,'post.html')
+
+def Delete(request):
+    posts = Post.objects.all()
+    if(request.user.is_authenticated):
+        posts = Post.objects.filter(author = request.user)
+        if(not posts.exists()):
+            messages.info(request,"No blogs are present or posted")
+            return render(request,'Delete.html')
+    return render(request,'Delete.html',{'posts':posts})
+
+def delete_post(request,post_id):
+
+    post = get_object_or_404(Post,id = post_id)
+    post.delete()
+    messages.success(request, 'Blog deleted successfully!')
+    return redirect('index')
+
+    
