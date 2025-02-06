@@ -1,0 +1,77 @@
+.block {
+    background: #e6f7f2;  /* Light mint green background for blog blocks */
+    color: #333;  /* Dark grey text for better readability */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);  /* Slight shadow for depth */
+}
+
+.block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);  /* Stronger shadow on hover for emphasis */
+}
+
+.block h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #222;  /* Darker color for headings */
+    font-weight: bold;
+}
+
+.block h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #333;  /* Changed sub-heading color to black */
+}
+
+.block p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #555;  /* Medium grey for paragraph text */
+}
+
+.block h5 {
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: right;
+    color: #333;  /* Changed footer text color to black */
+}
+
+
+h1{
+    color:red;
+    font-weight: bold;
+    text-align: center;
+}
+/* Style for the form */
+.delete-form {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Style for the delete button */
+.delete-btn {
+    background-color: #ff4d4d; /* Red color to indicate deletion */
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.delete-btn:hover {
+    background-color: #e60000; /* Darker red */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Focus effect */
+.delete-btn:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.8); /* Red glow effect when focused */
+}

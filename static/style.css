@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;  /* Light pastel blue background for a soothing effect */
+    background-color: #7f848a;  /* Light pastel blue background for a soothing effect */
     color: #333;  /* Dark grey text for better readability */
     line-height: 1.6;
     padding: 20px;
@@ -17,6 +17,7 @@ header {
     text-align: center;
     margin-bottom: 40px;
     color: #333;  /* Dark grey text for header */
+    position: relative; /* Added to position child elements like the delete button */
 }
 
 h1 {
@@ -58,6 +59,29 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Delete Your Posts Button */
+.delete-posts {
+    position: absolute;
+    right: 20px;  /* Adjust the distance from the right edge */
+    top: 10px;    /* Align vertically */
+}
+
+.delete-posts button {
+    background-color: #f44336; /* Red background for the delete button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-posts button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    transform: scale(1.1); /* Slight scale effect */
 }
 
 /* Post Block Styles */
@@ -134,3 +158,32 @@ a:hover {
 h4 {
     color: #333;  /* Changed sub-heading color to black */
 }
+
+#alert-message.fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+
+  #alert-message.fade-out {
+    animation: fadeOut 1s ease-in-out forwards;
+  }
+
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
